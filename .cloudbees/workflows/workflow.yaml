@@ -21,4 +21,4 @@ jobs:
           flow: myflow
       - name: print output
         uses: docker://golang:1.20.3-alpine3.17
-        run: echo "hello outputs2 ${{ toJSON(steps.kestra.outputs) }}"
+        run: echo "hello outputs2 ${{ toJSON(steps.kestra.outputs.myvar1) }}"
