@@ -2,17 +2,11 @@ apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Publish action
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches:
       - "**"
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-env:
-  version: 0.0.1
 jobs:
   build:
     steps:
@@ -20,7 +14,10 @@ jobs:
         uses: cloudbees-io/checkout@v1
 
       - name: Run flow
+        id: kestra
         uses: swashbuck1r/kestra-action@main
         with:
           namespace: acme
           flow: myflow
+      - name: print output
+        run: echo "myvar1: ${{ steps.kestra.outputs.myvar1 }}"
