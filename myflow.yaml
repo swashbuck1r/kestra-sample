@@ -18,7 +18,7 @@ tasks:
     inputFiles:
       script.sh: |
         echo "until loop2"
-        i=5
+        i=10
         until [ $i == 1 ]
         do
             echo "countdown: $i secs";
