@@ -1,10 +1,5 @@
-id: myflow
+id: myflow2
 namespace: acme
-inputs:
-  - id: message
-    type: STRING
-    defaults: "Hello World!"
-    displayName: "A string input"
 
 outputs:
   - id: myvar1
@@ -17,7 +12,7 @@ outputs:
 tasks:
   - id: hello
     type: io.kestra.plugin.core.log.Log
-    message: "Your message: {{ inputs.message }}! 🚀"
+    message: Hello world! 🚀
   - id: loop
     type: io.kestra.core.tasks.scripts.Bash
     inputFiles:
